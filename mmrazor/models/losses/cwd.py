@@ -38,6 +38,7 @@ class ChannelWiseDivergence(nn.Module):
         Return:
             torch.Tensor: The calculated loss value.
         """
+        preds_S = F.interpolate(preds_S,scale_factor=2,mode='bilinear',align_corners=True)
         assert preds_S.shape[-2:] == preds_T.shape[-2:]
         N, C, H, W = preds_S.shape
 
