@@ -17,14 +17,13 @@ model = dict(
         type='ConfigurableDistiller',
         distill_losses=dict(
             loss_maskd=dict(type='MasKDLoss',
-                          channels=[256, 256, 256, 256, 256],
-                          num_tokens=6,
-                          weight_mask=True,
-                          custom_mask=True,
-                          # custom_mask_warmup=7330,
-                          custom_mask_warmup=8500,
-                          pretrained='https://github.com/Gumpest/MasKD/releases/download/v0.0.3/maskd_retinanet_x101_64x4d_fpn_mstrain_3x_coco_20210719_051838-022c2187.ckpt',
-                          loss_weight=7)),
+                            channels=[19],
+                            num_tokens=6,
+                            weight_mask=True,
+                            custom_mask=True,
+                            # custom_mask_warmup=7330,
+                            custom_mask_warmup=8500,
+                            loss_weight=7)),
         student_recorders=dict(
             logits=dict(type='ModuleOutputs', source='decode_head.conv_seg')),
         teacher_recorders=dict(

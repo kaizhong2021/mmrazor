@@ -105,6 +105,7 @@ class MasKDLoss(nn.Module):
         if not isinstance(preds_S, (tuple, list)):
             preds_S = (preds_S, )
             preds_T = (preds_T, )
+            # print("T: "+str(len(preds_T)),"S: "+str(len(preds_S))+"M: "+str(len(self.mask_modules)))
         assert len(preds_S) == len(preds_T) == len(self.mask_modules)
 
         losses = []
